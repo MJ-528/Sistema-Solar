@@ -30,3 +30,13 @@ h1{
     text-decoration: none;
     border-radius: 20px;
 }
+
+.btn2SS{
+    color: black;
+    background-color:aqua;
+    padding: 5px;
+    font-size: 16px;
+    font-family: "Poetsen One", sans-serif;  
+    text-decoration: none;
+    border-radius: 20px;
+}
