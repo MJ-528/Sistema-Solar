@@ -30,22 +30,22 @@
 
         
 
-        const solGeometry = new THREE.SphereGeometry(3, 30, 30);
+        const solGeometry = new THREE.SphereGeometry(6, 30, 30);
         const solTexture = new THREE.TextureLoader().load('./imagenes/sol.jpg');
         const solMaterial = new THREE.MeshBasicMaterial({ map: solTexture });
         const solMesh = new THREE.Mesh(solGeometry, solMaterial);
         scene.add(solMesh);
 
 
-        const tierraGeometry = new THREE.SphereGeometry(.3, 30, 30);
+        const tierraGeometry = new THREE.SphereGeometry(2, 30, 30);
         const tierraTexture = new THREE.TextureLoader().load('./imagenes/tierra1.jpg');
-        const tierraMaterial = new THREE.MeshBasicMaterial({ map: tierraTexture });
+        const tierraMaterial = new THREE.MeshStandardMaterial({ map: tierraTexture });
         const tierraMesh = new THREE.Mesh(tierraGeometry, tierraMaterial);
 
 
-        const lunaGeometry = new THREE.SphereGeometry(0.16, 30, 30);
-        const lunaTexture = new THREE.TextureLoader().load('/imagenes/luna1.jpg');
-        const lunaMaterial = new THREE.MeshBasicMaterial({ map: lunaTexture });
+        const lunaGeometry = new THREE.SphereGeometry(.5, 30, 30);
+        const lunaTexture = new THREE.TextureLoader().load('/imagenes/luna2.jpg');
+        const lunaMaterial = new THREE.MeshStandardMaterial({ map: lunaTexture });
         const lunaMesh = new THREE.Mesh(lunaGeometry, lunaMaterial);
         tierraMesh.add(lunaMesh);
 
@@ -57,15 +57,15 @@
 
         camera.position.set(0,0,40);
         solMesh.position.set(0,2,0)
-        tierraMesh.position.set(7,2,0)
-        lunaMesh.position.set(1,0,0)
+        tierraMesh.position.set(15,2,0)
+        lunaMesh.position.set(3,0,0)
         
 
         function animacion(){
             solMesh.rotateY(0.005);
 
-            tierraMesh.rotateY(0.07);
-            tierraObj.rotateY(0.006);
+            tierraMesh.rotateY(0.002);
+            tierraObj.rotateY(0.0001);
 
             lunaMesh.rotateY(0.003); 
             requestAnimationFrame(animacion);
