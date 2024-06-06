@@ -8,20 +8,16 @@
 </head>
 <body class="FSS">
     <a href="./Index.html" class="btn1">Regresar al inicio</a>
+    <button id="vistaArriba">Vista arriba</button>
+    <button id="vistaClasica">Vista clasica</button>
+    <button id="vistaCentro">Vista centro</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script>
-        //<script type="module">
-        //  import * as THREE from './threejs/three.module.js';
-        // import {OrbitControls} from './threejs/orbitcontrols.js';
-
-        
-
         const scene = new THREE.Scene(); 
         scene.background = new THREE.Color(0x000000);
         const camera  = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000); 
         
-
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
@@ -32,8 +28,6 @@
         const pointLight = new THREE.PointLight(0xFFFFFF,1.5,300);
         pointLight.position.set(0,2, 0); 
         scene.add(pointLight);
-
-        
 
         const solGeometry = new THREE.SphereGeometry(3, 30, 30);
         const solTexture = new THREE.TextureLoader().load('./imagenes/sol.jpg');
@@ -120,6 +114,7 @@
         neptunoObj.add(neptunoMesh);
         scene.add(neptunoObj);
 
+
         camera.position.set(0,0,40);
         solMesh.position.set(0,2,0);
         mercMesh.position.set(3.5,2,0);
@@ -133,9 +128,6 @@
         saturnoanilloMesh.rotation.x=1.3;
         uranoMesh.position.set(25,2,0);
         neptunoMesh.position.set(29,2,0);
-
-        
-        
 
         function animacion(){
             solMesh.rotateY(0.005);
@@ -171,8 +163,22 @@
         }
         animacion();
 
-        
-        
+        // Botones
+        document.getElementById("vistaArriba").addEventListener("click", function() {
+            camera.position.set(0, 40, 0);
+            camera.lookAt(0, 0, 0);
+        });
+
+        document.getElementById("vistaClasica").addEventListener("click", function() {
+            camera.position.set(0, 0, 40);
+            camera.lookAt(0, 0, 0);
+        });
+
+        document.getElementById("vistaCentro").addEventListener("click", function() {
+            camera.position.set(0, 0, 40);
+            camera.lookAt(solMesh.position);
+        });
+
     </script>
 </body>
 </html>
