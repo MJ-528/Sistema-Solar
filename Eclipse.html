@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Sistema Solar</title>
+</head>
+<body class="FSS">
+    <a href="./Index.html" class="btn1">Regresar al inicio</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+
+        const scene = new THREE.Scene(); 
+        scene.background = new THREE.Color(0x000000);
+        const camera  = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000); 
+        
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const ambientLight= new THREE.AmbientLight(0x333333);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xFFFFFF,1.5,300);
+        pointLight.position.set(0,2, 0); 
+        scene.add(pointLight);
+
+        
+
+        const solGeometry = new THREE.SphereGeometry(3, 30, 30);
+        const solTexture = new THREE.TextureLoader().load('./imagenes/sol.jpg');
+        const solMaterial = new THREE.MeshBasicMaterial({ map: solTexture });
+        const solMesh = new THREE.Mesh(solGeometry, solMaterial);
+        scene.add(solMesh);
+
+
+        const tierraGeometry = new THREE.SphereGeometry(.3, 30, 30);
+        const tierraTexture = new THREE.TextureLoader().load('./imagenes/tierra1.jpg');
+        const tierraMaterial = new THREE.MeshBasicMaterial({ map: tierraTexture });
+        const tierraMesh = new THREE.Mesh(tierraGeometry, tierraMaterial);
+
+
+        const lunaGeometry = new THREE.SphereGeometry(0.16, 30, 30);
+        const lunaTexture = new THREE.TextureLoader().load('/imagenes/luna1.jpg');
+        const lunaMaterial = new THREE.MeshBasicMaterial({ map: lunaTexture });
+        const lunaMesh = new THREE.Mesh(lunaGeometry, lunaMaterial);
+        tierraMesh.add(lunaMesh);
+
+        const tierraObj = new THREE.Object3D();
+        tierraObj.add(tierraMesh);
+        scene.add(tierraObj);
+        
+
+
+        camera.position.set(0,0,40);
+        solMesh.position.set(0,2,0)
+        tierraMesh.position.set(7,2,0)
+        lunaMesh.position.set(1,0,0)
+        
+
+        function animacion(){
+            solMesh.rotateY(0.005);
+
+            tierraMesh.rotateY(0.07);
+            tierraObj.rotateY(0.006);
+
+            lunaMesh.rotateY(0.003); 
+            requestAnimationFrame(animacion);
+            renderer.render(scene,camera);
+        }
+        animacion();
+
+        
+        
+    </script>
+</body>
+</html>
