@@ -34,9 +34,16 @@ h1{
 .btn2SS{
     color: black;
     background-color:aqua;
-    padding: 5px;
+    padding: 7px;
     font-size: 16px;
-    font-family: "Poetsen One", sans-serif;  
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 10px;
+}
+.bvista{
+    color: black;
+    background-color:chartreuse;
+    padding: 7px;
+    font-size: 14px; 
+    text-decoration: none;
+    border-radius: 10px;
 }
