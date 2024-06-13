@@ -31,6 +31,27 @@
         pointLight.position.set(0,2, 0); 
         scene.add(pointLight);
 
+
+        const loader = new THREE.FontLoader();
+        loader.load('./fuente/Nunito Medium_Regular.json', function (font) {
+        const geometry = new THREE.TextGeometry('Texto en 3D', {
+            font: font,
+            size: 1,
+            height:0.05,
+            
+        });
+
+        
+        const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        const textMesh = new THREE.Mesh(geometry, material);
+        textMesh.position.set(8,8,0);
+        scene.add(textMesh);
+    });
+
+    function  planetas (){
+
+    }
+
         const solGeometry = new THREE.SphereGeometry(3, 30, 30);
         const solTexture = new THREE.TextureLoader().load('./imagenes/sol.jpg');
         const solMaterial = new THREE.MeshBasicMaterial({ map: solTexture });
