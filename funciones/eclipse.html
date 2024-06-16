@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="estilo.css">
     <title>Sistema Solar</title>
 </head>
 <body class="FSS">
-    <a href="./Index.html" class="btn1">Regresar al inicio</a>
+    <a href="../index.html" class="btn1">Regresar al inicio</a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script>
@@ -44,7 +44,7 @@
 
 
         const lunaGeometry = new THREE.SphereGeometry(.5, 30, 30);
-        const lunaTexture = new THREE.TextureLoader().load('/imagenes/luna2.jpg');
+        const lunaTexture = new THREE.TextureLoader().load('./imagenes/luna2.jpg');
         const lunaMaterial = new THREE.MeshStandardMaterial({ map: lunaTexture });
         const lunaMesh = new THREE.Mesh(lunaGeometry, lunaMaterial);
         tierraMesh.add(lunaMesh);
