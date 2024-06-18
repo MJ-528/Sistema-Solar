@@ -17,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script>
+
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x000000);
         const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -47,8 +48,6 @@
             var stars = new THREE.Points(starGeometry, starMaterial);
             scene.add(stars);
         }
-
-
 
         const solGeometry = new THREE.SphereGeometry(3, 30, 30);
         const solTexture = new THREE.TextureLoader().load('./imagenes/sol.jpg');
@@ -160,7 +159,7 @@
             mercMesh.rotateY(0.003);
             mercObj.rotateY(0.035);
 
-            venusMesh.rotateY(0.001);
+            venusMesh.rotateY(-0.001);
             venusObj.rotateY(0.0065);
 
             tierraMesh.rotateY(0.07);
@@ -186,7 +185,7 @@
             requestAnimationFrame(animacion);
             renderer.render(scene, camera);
         }
-        
+
         createStars();
         animacion();
 
