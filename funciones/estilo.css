@@ -61,10 +61,17 @@ h1{
     font-size: 40px;
 }
 
+.bplanetas{
+    display: flex;
+    background-color:black;
+    padding:4px;
+}
+
 .btn1{
     color: black;
     background-color:deeppink;
-    padding: 14px;
+    padding: 7px;
+    font-size: 16px;
     font-family: "Poetsen One", sans-serif;  
     text-decoration: none;
     border-radius: 20px;
